@@ -5,8 +5,7 @@ load_dotenv()
 from flask_cors import CORS
 from api import querySchools
 import re
-import pprint
-pp = pprint.PrettyPrinter(indent=2)
+
 
 app = Flask(__name__)
 CORS(app)
@@ -22,7 +21,7 @@ def getSchoolById(id):
   """ GET school by int id """
   queryStr = f"&id={id}"
   data = querySchools(queryStr=queryStr)
-  print(queryStr)
+  
   return { "data": data[0] }
 
 
@@ -40,7 +39,6 @@ def getEarningsChartData(id):
   """ Retuns 3, 6, 7, 8, 9, & 10 year-after-entry mean earnings prepared as chart data for a single school in the shape needed for bar chart"""
   queryStr = f"&keys_nested=true&fields=school.name,id,latest.earnings&id={id}"
   queryResult = querySchools(queryStr)
-  pp.pprint(queryResult)
   earningsResult = queryResult["results"][0]["latest"]["earnings"]
   
   earningSegments = [
@@ -70,8 +68,6 @@ def getEarningsChartData(id):
             earningsObjet["mean_earnings"] = value["mean_earnings"]
             earnings.append(earningsObjet)
           if type(value["mean_earnings"]) == dict:
-            #print("DICTIONARY")
-            #pp.pprint(value["mean_earnings"])
             for key2, value2 in value["mean_earnings"].items():
               if key2 in earningSegments:
                 earningsObjet[key2] = value2
@@ -84,4 +80,4 @@ def getEarningsChartData(id):
   }
 
 if __name__ == "__main__":
-  app.run(debug=True)
+  app.run(debug=False)
