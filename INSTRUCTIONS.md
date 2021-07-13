@@ -1,4 +1,5 @@
 >.
+> Deployed to https://eduanalytics-front.vercel.app/
 >## Starting the Next.js Server
 >### Install Dependencies:
 >```
