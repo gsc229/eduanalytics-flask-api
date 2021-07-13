@@ -1,6 +1,7 @@
 import os
 import requests
 from flask_restful import abort
+
 BASE_URL = os.environ.get('BASE_URL')
 API_KEY = os.environ.get('API_KEY')
 BASE_QUERY = f"{BASE_URL}?api_key={API_KEY}"
