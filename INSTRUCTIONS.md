@@ -19,7 +19,7 @@
 > ```
 > ### Start the server:
 > ```
-> yarn start
+> yarn run dev
 > ```
 
 >.
