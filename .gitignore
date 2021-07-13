@@ -15,7 +15,7 @@ __pycache__/
 
 # C extensions
 *.so
-
+.vscode
 # Distribution / packaging
 .Python
 build/
@@ -210,3 +210,4 @@ cython_debug/
 # Cython debug symbols
 
 # End of https://www.toptal.com/developers/gitignore/api/flask,python
+.vercel
